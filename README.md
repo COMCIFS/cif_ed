@@ -15,3 +15,4 @@ This GitHub project contains:
   * docs/electron_examples.md : a survey of current usage in CIFs reporting 3DED structure determinations.
   * docs/recommendations.md : draft recommendations to authors to harmonise their use of CIF items.
   * docs/platon_checks.pdf: summary of all checks currently available to _PLATON_, to allow consideration of others that might need to be altered or suppressed.
+  * docs/zenodo_template.md: examples of metadata for Zenodo deposition of round-robin data sets, potentially useful in identify mandatory requirements
