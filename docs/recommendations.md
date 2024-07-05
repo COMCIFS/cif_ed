@@ -48,7 +48,7 @@ This data item **should always be present with value 'electron'** for 3D ED stru
 
 ## `_diffrn_source.description` and `_diffrn_source.make`
 
-These items replace the deprecated terms `_diffrn_source` and `_diffrn_source_type` respectively. 'Electron microscope' is often found in existing files as a value for `_diffrn_source` (now `_diffrn_source.description`; defined as _The general class of the source of radiation._), but 'electron gun' is technically more accurate. For `_diffrn_source.make` the usual options in electron diffraction are tungsten, LaB6, Schottky FEG (field-emission gun) or cold-effect FEG.
+These items replace the deprecated terms `_diffrn_source` and `_diffrn_source_type` respectively. 'Electron microscope' is often found in existing files as a value for `_diffrn_source` (now `_diffrn_source.description`; defined as _The general class of the source of radiation._), but 'electron gun' is technically more accurate. For `_diffrn_source.make` the usual options in electron diffraction are tungsten, LaB6, Schottky FEG (field-emission gun) or cold FEG.
 
 ## `_diffrn_source.size`
 
@@ -60,7 +60,7 @@ Both should be supplied for electron diffraction studies. The value of `_diffrn_
 
 ## `_diffrn_detector.description` and `_diffrn_detector.make`
 
-These items replace the terms `_diffrn_detector` and `_diffrn_detector_type` respectively. Defined respectively as _The general class of the radiation detector_ and _The make, model or name of the detector device used._ Typical values for `_diffrn_detector.description` could be CCD, CMOS, 'Hybrid pixel (HPD)' or 'Direct detection camera (DDC)'.
+These items replace the terms `_diffrn_detector` and `_diffrn_detector_type` respectively. Defined respectively as _The general class of the radiation detector_ and _The make, model or name of the detector device used._ Typical values for `_diffrn_detector.description` could be CCD, CMOS, 'Hybrid pixel (HPD)' or 'Direct electron detector (DED)'.
 
 ## `_diffrn_measurement.method_precession`
 
