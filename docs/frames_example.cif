@@ -1,0 +1,194 @@
+#\#CIF_2.0
+
+# A hypothetical example to allow archiving of raw data
+data_experimental_data_example
+
+# In current imgCIF schema, 'arrays' are the actual binary images. Note
+# that a *frame* could be a composite of several arrays.
+loop_
+  _diffrn_data_frame.id
+  _diffrn_data_frame.array_id
+   1  raw_001
+   2  raw_002
+   3  raw_003
+   4  raw_004
+   5  raw_005
+   6  raw_006
+   7  raw_007
+   8  raw_008
+   9  raw_009
+  10  raw_010   . . . . . .
+
+# This file could in principle contain each image. Most likely the images
+# will be stored elsewhere. This table provides a mapping between local
+# identifiers and remote identifiers.
+loop_
+  _array_data.array_id
+  _array_data.external_data_id
+   raw_001  zenodo_001
+   raw_002  zenodo_002
+   raw_003  zenodo_003
+   raw_004  zenodo_004
+   raw_005  zenodo_005
+   raw_006  zenodo_006
+   raw_007  zenodo_007
+   raw_008  zenodo_008
+   raw_009  zenodo_009
+   raw_010  zenodo_010 . . . . . .  
+
+# This table gives the location of each image in the remote store.
+loop_
+  _array_data_external_data.id
+  _array_data_external_data.format   # currently restrictive allowed set
+  _array_data_external_data.uri
+  _array_data_external_data.path
+   zenodo_001 TIFF  https://zenodo.org/records/7092770  001_proc.tif
+   zenodo_002 TIFF  https://zenodo.org/records/7092770  002_proc.tif
+   zenodo_003 TIFF  https://zenodo.org/records/7092770  003_proc.tif
+   zenodo_004 TIFF  https://zenodo.org/records/7092770  005_proc.tif
+   zenodo_005 TIFF  https://zenodo.org/records/7092770  006_proc.tif
+   zenodo_006 TIFF  https://zenodo.org/records/7092770  009_proc.tif
+   zenodo_007 TIFF  https://zenodo.org/records/7092770  010_proc.tif
+   zenodo_008 TIFF  https://zenodo.org/records/7092770  011_proc.tif
+   zenodo_009 TIFF  https://zenodo.org/records/7092770  012_proc.tif
+   zenodo_010 TIFF  https://zenodo.org/records/7092770  0R13proc.tif
+   . . . . . .  . .
+
+# The rest of the example provides the information reported for each frame.
+# There is provision for a number of scans, and for each scan information
+# can be given about, for example, the range through which the equipment
+# or crystal is rotated.
+loop_
+  _diffrn_scan.id
+  _diffrn_scan.frame_id_start
+  _diffrn_scan.frame_id_end
+  _diffrn_scan.frames   # may differ from *_end - *_start if frames omitted
+  _diffrn_scan.integration_time  # in imgCIF - perhaps useful?
+    SCAN_1   1    1946      1723   10
+
+# Can define scan ranges here. The actual settings for each frame are
+# recorded separately. For continuous scans (with no dropped frames), the
+# position for each frame could be deduced; but DIFFRN_SCAN_FRAME_AXIS
+# values take precedence.
+loop_
+  _diffrn_scan_axis.scan_id
+  _diffrn_scan_axis.axis_id
+  _diffrn_scan_axis.angle_start
+  _diffrn_scan_axis.angle_range
+  _diffrn_scan_axis.angle_increment
+    SCAN_1 axis_u        0.0   1.0   0.01
+    SCAN_1 axis_v       -0.5   1.0   0.0
+    SCAN_1 axis_w       -0.5  -1.0   0.01
+    SCAN_1 axis_alpha  -30.0  90.0   2.0
+    SCAN_1 axis_beta    -0.2   0.1   0.05
+    SCAN_1 axis_omega    0.1   0.4   0.0
+
+# Properties associated with each frame (excluding position - that is
+# specified in the DIFFRN_SCAN_FRAME_AXIS loop).
+loop_
+  _diffrn_scan_frame.frame_id          # in imgCIF - *part of* key
+  _diffrn_scan_frame.scan_id           # in imgCIF - *part of* key
+  _diffrn_scan_frame.integration_time  # in imgCIF - perhaps useful?
+  _diffrn_scan_frame.precession_angle  # new
+  _diffrn_scan_frame.scale_factor      # new
+   1  SCAN_1 . 1.350   0.703
+   2  SCAN_1 . 1.350   0.794
+   3  SCAN_1 . 1.350   0.882
+   4  SCAN_1 . 1.350   0.864
+   5  SCAN_1 . 1.350   0.894
+   6  SCAN_1 . 1.350   0.942
+   7  SCAN_1 . 1.350   0.997
+   8  SCAN_1 . 1.350   1.062
+   9  SCAN_1 . 1.350   1.093
+  10  SCAN_1 . 1.350   1.148
+
+# All axes are identified here. There are also categories available to
+# associate, say, the 'goniometer' equipment axes with a specific make
+# of instrument.
+loop_          # values are purely illustrative
+  _axis.id
+  _axis.type
+  _axis.equipment
+  _axis.depends_on
+  _axis.vector[1]
+  _axis.vector[2]
+  _axis.vector[3]
+  _axis.offset[1]
+  _axis.offset[2]
+  _axis.offset[3]
+    axis_u      rotation  detector   .           1    0 0    . . .
+    axis_v      rotation  detector   .           0    1 0    . . .
+    axis_w      rotation  detector   .           0    0 1    . . .
+    axis_alpha  rotation  goniometer axis_omega  1    0 0    . . .
+    axis_beta   rotation  goniometer axis_beta   0.65 0 0.76 . . . 
+    axis_omega  rotation  goniometer .           1    0 0    . . .
+
+# And, at last, the positional values along/around each axis...
+loop_
+  diffrn_scan_frame_axis.frame_id
+  diffrn_scan_frame_axis.axis_id
+  diffrn_scan_frame_axis.angle
+  diffrn_scan_frame_axis.displacement
+   1  axis_u        1.00000    0.0
+   1  axis_v       -0.49577    0.0
+   1  axis_w       -0.52302    0.0
+   1  axis_alpha  -29.891      0.0
+   1  axis_beta     0.055      0.0
+   1  axis_omega    0.101      0.0
+   2  axis_u        1.00000    0.0
+   2  axis_v       -0.46540    0.0
+   2  axis_w       -0.54400    0.0
+   2  axis_alpha  -28.089      0.0
+   2  axis_beta     0.053      0.0
+   2  axis_omega    0.101      0.0
+   3  axis_u        1.00000    0.0
+   3  axis v       -0.43528    0.0
+   3  axis_w       -0.56478    0.0
+   3  axis_alpha  -26.290      0.0
+   3  axis_beta     0.053      0.0
+   3  axis_omega    0.102      0.0
+   4  axis_u        1.00000    0.0
+   4  axis_v       -0.40537    0.0
+   4  axis_w       -0.58541    0.0
+   4  axis_alpha  -24.491      0.0
+   4  axis_beta     0.053      0.0
+   4  axis_omega    0.104      0.0
+   5  axis_u        1.00000    0.0
+   5  axis_v       -0.37559    0.0
+   5  axis_w       -0.60593    0.0
+   5  axis_alpha  -22.694      0.0
+   5  axis_beta     0.054      0.0
+   5  axis_omega    0.108      0.0
+   6  axis_u        1.00000    0.0
+   6  axis_v       -0.34588    0.0
+   6  axis_w       -0.62640    0.0
+   6  axis_alpha  -20.898      0.0
+   6  axis_beta     0.054      0.0
+   6  axis_omega    0.112      0.0
+   7  axis_u        1.00000    0.0
+   7  axis_v       -0.31619    0.0
+   7  axis_w       -0.64686    0.0
+   7  axis_alpha  -19.103      0.0
+   7  axis_beta     0.055      0.0
+   7  axis_omega    0.117      0.0
+   8  axis_u        1.00000    0.0
+   8  axis_v       -0.28646    0.0
+   8  axis_w       -0.66735    0.0
+   8  axis_alpha  -17.309      0.0
+   8  axis_beta     0.055      0.0
+   8  axis_omega    0.122      0.0
+   9  axis_u        1.00000    0.0
+   9  axis_v       -0.25661    0.0
+   9  axis_w       -0.68793    0.0
+   9  axis_alpha  -15.514      0.0
+   9  axis_beta     0.056      0.0
+   9  axis_omega    0.128      0.0
+  10  axis_u        1.00000    0.0
+  10  axis_v       -0.22660    0.0
+  10  axis_w       -0.70864    0.0
+  10  axis_alpha  -13.720      0.0
+  10  axis_beta     0.055      0.0
+  10  axis_omega    0.133      0.0
+   .  .             .          .
+   .  .             .          .
+   .  .             .          .

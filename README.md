@@ -15,4 +15,8 @@ This GitHub project contains:
   * docs/electron_examples.md : a survey of current usage in CIFs reporting 3DED structure determinations.
   * docs/recommendations.md : draft recommendations to authors to harmonise their use of CIF items.
   * docs/platon_checks.pdf: summary of all checks currently available to _PLATON_, to allow consideration of others that might need to be altered or suppressed.
-  * docs/zenodo_template.md: examples of metadata for Zenodo deposition of round-robin data sets, potentially useful in identify mandatory requirements
+  * docs/zenodo_template.md: examples of metadata for Zenodo deposition of round-robin data sets with suggested mappings to CIF data names, potentially useful for identifying mandatory requirements
+  * docs/frames_example.cif: an example CIF structured following the imgCIF dictionary to indicate how per-frame data (including orientations) could be recorded, and also how to provide links to individual images stored in an external repository. Numeric values are illustrative - for example, axis definitions should be chosen to be compatible with imgCIF definitions - but the general structure is presented. Compare with imgCIF files associated with published articles in *Raw Data Letters*: https://doi.org/10.1107/S2414314622008525/he4557img.cif, 
+https://doi.org/10.1107/S2414314623001141/iq4001img1.cif,
+https://doi.org/10.1107/S2414314623001141/iq4001img2.cif,
+https://doi.org/10.1107/S2414314622010598/ii4001img.cif

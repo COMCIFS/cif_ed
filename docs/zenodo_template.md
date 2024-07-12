@@ -25,7 +25,7 @@ CIF data items useful for reporting this information are suggested. Normal typef
 | Beam Diameter                         | 900                                   |  `_diffrn_source.size`   |
 | Beam Convergence                      | Parallel beam, convergence <0.1mrad   |  **`_diffrn_source.convergence_angle`**   |
 | Detector                              | Hybrid pixel detector ASI Cheetah (side-mounted)    |  `_diffrn_detector.make`<br>`_diffrn_detector.description`   |
-| Number of pixels in the image         | 512 x 512                             |  *`_array_structure_list.index`*<br>*`_array_structure_list.dimension`   |
+| Number of pixels in the image         | 512 x 512                             |  *`_array_structure_list.index`*<br>*`_array_structure_list.dimension`*   |
 | Pixel size                            | 55 µm x 55 µm                         |  *`_array_element_size.index`*<br>*`_array_element_size.size`*    |
 | Pixel binning                         |                                       |  *`_array_intensities.pixel_binning_method`*    |
 | Effective camera length               | 1000 mm [2]                           |  *`_diffrn_scan_axis.displacement_start`*<br>*`_diffrn_scan_axis.displacement_range`*    |
@@ -100,7 +100,7 @@ CIF data items useful for reporting this information are suggested. Normal typef
 | Beam Diameter                         | 900                                   |  `_diffrn_source.size`    |
 | Beam Convergence                      | Parallel beam, convergence <0.1mrad   |  *`_diffrn_source.convergence_semi_angle`*    |
 | Detector                              | Hybrid pixel detector ASI Cheetah (side-mounted)    |  **`_diffrn_detector.make`**<br>**`_diffrn_detector.description`**    |
-| Number of pixels in the image         | 512 x 512                             |  *`_array_structure_list.index`*<br>*`_array_structure_list.dimension`   |
+| Number of pixels in the image         | 512 x 512                             |  *`_array_structure_list.index`*<br>*`_array_structure_list.dimension`*   |
 | Pixel size                            | 55 µm x 55 µm                         |  *`_array_element_size.index`*<br>*`_array_element_size.size`*    |
 | Pixel binning                         |                                       |  *`_array_intensities.pixel_binning_method`*    |
 | Effective camera length               | 1000 mm [2]                           |  *`_diffrn_scan_axis.displacement_start`*<br>*`_diffrn_scan_axis.displacement_range`*    |
