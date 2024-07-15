@@ -1,3 +1,5 @@
+data_draft_new_items
+
 save_computing.sample_tracking
 
     _definition.id                '_computing.sample_tracking'
@@ -99,17 +101,18 @@ save_diffrn_source.convergence_angle
 
 save_
 
-save_diffrn_source.illumination_mode
+save_diffrn_source.ed_probe_formation
 
-    _definition.id                '_diffrn_source.illumination_mode'
+    _definition.id                '_diffrn_source.ed_probe_formation'
     _definition.update            2024-07-15
     _description.text
 ;
-    Enumerated code for the technique used to ensure that an appropriate
-    region of the sample is illuminated by the incident radiation beam.
+    Enumerated code for the technique in electron diffraction used to
+    determine the probe size to illuminate the appropriate region of
+    the sample by the incident radiation beam.
 ;
     _name.category_id             diffrn_source
-    _name.object_id               illumination_mode
+    _name.object_id               ed_probe_formation
     _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
@@ -118,7 +121,8 @@ save_diffrn_source.illumination_mode
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         microdiffraction         'Entire sample is illuminated by beam'
+         microdiffraction         'Probe size 500-100nm'
+         nanodiffraction          'Probe size <100nm'
          SAED                     'Selected area electron diffraction.'
 
 save_
