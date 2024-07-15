@@ -21,15 +21,15 @@ CIF data items useful for reporting this information are suggested. Normal typef
 | Radiation source                      | LaB6                                  |  `_diffrn_source.make`    |
 | Accelerating voltage                  | 200 kV                                |  `_diffrn_source.voltage`   |
 | Wavelength                            | 0.0251 Å                              |  `_diffrn_radiation.wavelength`   |
-| Probe Type                            | Microdiffraction [1]                  |  `_diffrn_source.device`<br>`_diffrn_source.details`    |
+| Probe Type                            | Microdiffraction                      |  **`_diffrn_source.ed_probe_formation`**<br>*or* `_diffrn_source.device`<br>`_diffrn_source.details`    |
 | Beam Diameter                         | 900                                   |  `_diffrn_source.size`   |
 | Beam Convergence                      | Parallel beam, convergence <0.1mrad   |  **`_diffrn_source.convergence_angle`**   |
 | Detector                              | Hybrid pixel detector ASI Cheetah (side-mounted)    |  `_diffrn_detector.make`<br>`_diffrn_detector.description`   |
 | Number of pixels in the image         | 512 x 512                             |  *`_array_structure_list.index`*<br>*`_array_structure_list.dimension`*   |
 | Pixel size                            | 55 µm x 55 µm                         |  *`_array_element_size.index`*<br>*`_array_element_size.size`*    |
 | Pixel binning                         |                                       |  *`_array_intensities.pixel_binning_method`*    |
-| Effective camera length               | 1000 mm [2]                           |  *`_diffrn_scan_axis.displacement_start`*<br>*`_diffrn_scan_axis.displacement_range`*    |
-| Calibration constant                  | 0.008259 Å-1/pixel                    |      |
+| Effective camera length               | 1000 mm [1]                           |  *`_diffrn_scan_axis.displacement_start`*<br>*`_diffrn_scan_axis.displacement_range`*    |
+| Calibration constant                  | 0.008259 Å-1/pixel                    |  **`_diffrn_detector.ed_calibration_constant`**    |
 
 
 | Sample description:                   |                                       |      |
@@ -77,8 +77,7 @@ CIF data items useful for reporting this information are suggested. Normal typef
  * Data set label "RR1-S2_PRAHA-CROT" stands for Round Robin 1 sample 2 from Praha, data collection method continuous rotation   
  * The additional files can be found in the folder NATROLITE_RR1-S2_PRAHA\Continunous_rotation\Data_collection_processing
 
-[1] There is no dedicated CIF data name to accommodate this - the suggested items would allow 'microdiffraction' or 'SAED' as free test in `_diffrn_source.details`.
-[2] Understood as equivalent to 'sample-to-detector distance'.
+[1] Understood as equivalent to 'sample-to-detector distance'.
 
 ## (2) Precession experiment
 
@@ -96,15 +95,15 @@ CIF data items useful for reporting this information are suggested. Normal typef
 | Radiation source                      | LaB6                                  |  `_diffrn_source.make`    |
 | Accelerating voltage                  | 200 kV                                |  `_diffrn_source.voltage`    |
 | Wavelength                            | 0.0251 Å                              |  `_diffrn_radiation.wavelength`    |
-| Probe Type                            | Microdiffraction [1]                  |  `_diffrn_source.device`<br>`_diffrn_source.details`    |
+| Probe Type                            | Microdiffraction                      |   **`_diffrn_source.ed_probe_formation`**<br>*or* `_diffrn_source.device`<br>`_diffrn_source.details`    |
 | Beam Diameter                         | 900                                   |  `_diffrn_source.size`    |
 | Beam Convergence                      | Parallel beam, convergence <0.1mrad   |  *`_diffrn_source.convergence_semi_angle`*    |
 | Detector                              | Hybrid pixel detector ASI Cheetah (side-mounted)    |  **`_diffrn_detector.make`**<br>**`_diffrn_detector.description`**    |
 | Number of pixels in the image         | 512 x 512                             |  *`_array_structure_list.index`*<br>*`_array_structure_list.dimension`*   |
 | Pixel size                            | 55 µm x 55 µm                         |  *`_array_element_size.index`*<br>*`_array_element_size.size`*    |
 | Pixel binning                         |                                       |  *`_array_intensities.pixel_binning_method`*    |
-| Effective camera length               | 1000 mm [2]                           |  *`_diffrn_scan_axis.displacement_start`*<br>*`_diffrn_scan_axis.displacement_range`*    |
-| Calibration constant                  | 0.008259 Å-1/pixel                    |      |
+| Effective camera length               | 1000 mm [1]                           |  *`_diffrn_scan_axis.displacement_start`*<br>*`_diffrn_scan_axis.displacement_range`*    |
+| Calibration constant                  | 0.008259 Å-1/pixel                    |  **`_diffrn_detector.ed_calibration_constant`**    |
 
 | Sample description:                   |                                       |      |
 | ------------------------------------- | ------------------------------------- | ---- |
@@ -154,5 +153,4 @@ CIF data items useful for reporting this information are suggested. Normal typef
  * Data set label "RR1-S2_PRAHA-PREC" stands for Round Robin 1 sample 2 from Praha, data collection method Precession                                      |
  * The additional files can be found in the folder Precession\Data_collection_processing 
 
-[1] There is no dedicated CIF data name to accommodate this - the suggested items would allow 'microdiffraction' or 'SAED' as free test in `_diffrn_source.details`.
-[2] Understood as equivalent to 'sample-to-detector distance'.
+[1] Understood as equivalent to 'sample-to-detector distance'.
