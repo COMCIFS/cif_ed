@@ -1,4 +1,39 @@
-data_draft_new_items
+data_DRAFT_NEW_ITEMS
+
+    _dictionary.title            DRAFT_NEW_ITEMS
+    _dictionary.class            Instance
+    _dictionary.version          0.0.9
+    _dictionary.date             2024-07-22
+    _dictionary.uri
+        https://raw.githubusercontent.com/COMCIFS/cif_ed/main/draft_new_items.dic
+    _dictionary.ddl_conformance  4.2.0
+    _dictionary.namespace        CifCore
+    _description.text
+;
+    This dictionary defines additional draft data items under consideration
+    for adding to the cif_ed.dic file.
+;
+
+save_DRAFT_NEW_ITEMS_HEAD
+
+    _definition.id               DRAFT_NEW_ITEMS_HEAD
+    _definition.scope            Category
+    _definition.class            Head
+    _definition.update           2024-07-22
+    _description.text
+;
+     This category is the Head category for an extension dictionary used for
+     crystallographic structure determination using electron diffraction.
+;
+    _name.category_id            DRAFT_NEW_ITEMS
+    _name.object_id              DRAFT_NEW_ITEMS_HEAD
+
+    _import.get
+        [
+         {'dupl':Ignore  'file':https://github.com/COMCIFS/imgCIF/blob/master/cif_img.dic  'mode':Full  'save':HEAD}
+        ]
+
+save_
 
 save_computing.sample_tracking
 
@@ -60,6 +95,25 @@ save_diffrn_scan_frame.precession_angle
 
 save_
 
+save_diffrn_scan_frame.precession_angle_su
+
+    _definition.id                '_diffrn_scan_frame.precession_angle_su'
+    _definition.update            2024-07-15
+    _description.text
+;
+    Standard uncertainty of _diffrn_scan_frame.precession_angle.
+;
+    _name.category_id             diffrn_scan_frame
+    _name.object_id               precession_angle_su
+    _name.linked_item_id          '_diffrn_scan_frame.precession_angle'
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   degrees
+
+save_
+
 save_diffrn_scan_frame.scale_factor
 
     _definition.id                '_diffrn_scan_frame.scale_factor'
@@ -75,6 +129,24 @@ save_diffrn_scan_frame.scale_factor
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
+save_diffrn_scan_frame.scale_factor_su
+
+    _definition.id                '_diffrn_scan_frame.scale_factor_su'
+    _definition.update            2024-07-15
+    _description.text
+;
+    The scale factor for this frame.
+;
+    _name.category_id             diffrn_scan_frame
+    _name.object_id               scale_factor_su
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
     _units.code                   none
 
 save_
@@ -110,6 +182,7 @@ save_diffrn_source.ed_probe_formation
     Enumerated code for the technique in electron diffraction used to
     determine the probe size to illuminate the appropriate region of
     the sample by the incident radiation beam.
+    (Terminology from https://www.globalsino.com/EM/page2695.html.)
 ;
     _name.category_id             diffrn_source
     _name.object_id               ed_probe_formation
@@ -123,7 +196,70 @@ save_diffrn_source.ed_probe_formation
       _enumeration_set.detail
          microdiffraction         'Probe size 500-100nm'
          nanodiffraction          'Probe size <100nm'
-         SAED                     'Selected area electron diffraction.'
+         SAED                     'Selected-area electron diffraction.'
+
+save_
+
+save_exptl_crystal.mosaic_block_size
+
+    _definition.id                '_exptl_crystal.mosaic_block_size'
+    _definition.update            2024-07-22
+    _description.text
+;
+    Isotropic and resolution-independent term representing the average size of
+    mosaic domains in the crystal specified in angstroms. Larger size indicates
+    better ordered crystals.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaic_block_size
+    _type.purpose                 Measurand
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.:
+    _units.code                   angstroms
+
+save_
+
+save_exptl_crystal.mosaic_block_size_su
+
+    _definition.id                '_exptl_crystal.mosaic_block_size_su'
+    _definition.update            2024-07-22
+    _description.text
+;
+    Standard uncertainty of _exptl_crystal.mosaic_block_size.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaic_block_size_su
+    _name.linked_item_id          '_exptl_crystal.mosaic_block_size'
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   angstroms
+
+save_
+
+save_exptl_crystal.mosaic_method
+
+    _definition.id                '_exptl_crystal.mosaic_method'
+    _definition.update            2024-05-07
+    _description.text
+;
+    How parameters derived from the spot shape (such as mosaic block
+    size and rotation, beam divergence, and crossfire) and their
+    errors were estimated.
+
+    This can be a written description or a citation to a specific
+    software package that determined these parameters.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaic_method
+    _type.purpose                 Describe
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Text
+    _description_example.case     'Determined from rocking curve.'
 
 save_
 
@@ -196,5 +332,24 @@ save_refine_ls.sample_thickness
     _enumeration.range            0.:
     _units.code                   nm
     _description_example.case     35(2)
+
+save_
+
+save_refine_ls.sample_thickness_su
+
+    _definition.id                '_refine_ls.sample_thickness_su'
+    _definition.update            2024-07-08
+    _description.text
+;
+    Standard uncertainty of _refine_ls.sample_thickness.
+;
+    _name.category_id             refine_ls
+    _name.object_id               sample_thickness_su
+    _name.linked_item_id          '_refine_ls.sample_thickness'
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   nm
 
 save_

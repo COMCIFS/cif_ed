@@ -125,70 +125,70 @@ loop_          # values are purely illustrative
 
 # And, at last, the positional values along/around each axis...
 loop_
-  diffrn_scan_frame_axis.frame_id
-  diffrn_scan_frame_axis.axis_id
-  diffrn_scan_frame_axis.angle
-  diffrn_scan_frame_axis.displacement
-   1  axis_u        1.00000    0.0
-   1  axis_v       -0.49577    0.0
-   1  axis_w       -0.52302    0.0
-   1  axis_alpha  -29.891      0.0
-   1  axis_beta     0.055      0.0
-   1  axis_omega    0.101      0.0
-   2  axis_u        1.00000    0.0
-   2  axis_v       -0.46540    0.0
-   2  axis_w       -0.54400    0.0
-   2  axis_alpha  -28.089      0.0
-   2  axis_beta     0.053      0.0
-   2  axis_omega    0.101      0.0
-   3  axis_u        1.00000    0.0
-   3  axis v       -0.43528    0.0
-   3  axis_w       -0.56478    0.0
-   3  axis_alpha  -26.290      0.0
-   3  axis_beta     0.053      0.0
-   3  axis_omega    0.102      0.0
-   4  axis_u        1.00000    0.0
-   4  axis_v       -0.40537    0.0
-   4  axis_w       -0.58541    0.0
-   4  axis_alpha  -24.491      0.0
-   4  axis_beta     0.053      0.0
-   4  axis_omega    0.104      0.0
-   5  axis_u        1.00000    0.0
-   5  axis_v       -0.37559    0.0
-   5  axis_w       -0.60593    0.0
-   5  axis_alpha  -22.694      0.0
-   5  axis_beta     0.054      0.0
-   5  axis_omega    0.108      0.0
-   6  axis_u        1.00000    0.0
-   6  axis_v       -0.34588    0.0
-   6  axis_w       -0.62640    0.0
-   6  axis_alpha  -20.898      0.0
-   6  axis_beta     0.054      0.0
-   6  axis_omega    0.112      0.0
-   7  axis_u        1.00000    0.0
-   7  axis_v       -0.31619    0.0
-   7  axis_w       -0.64686    0.0
-   7  axis_alpha  -19.103      0.0
-   7  axis_beta     0.055      0.0
-   7  axis_omega    0.117      0.0
-   8  axis_u        1.00000    0.0
-   8  axis_v       -0.28646    0.0
-   8  axis_w       -0.66735    0.0
-   8  axis_alpha  -17.309      0.0
-   8  axis_beta     0.055      0.0
-   8  axis_omega    0.122      0.0
-   9  axis_u        1.00000    0.0
-   9  axis_v       -0.25661    0.0
-   9  axis_w       -0.68793    0.0
-   9  axis_alpha  -15.514      0.0
-   9  axis_beta     0.056      0.0
-   9  axis_omega    0.128      0.0
-  10  axis_u        1.00000    0.0
-  10  axis_v       -0.22660    0.0
-  10  axis_w       -0.70864    0.0
-  10  axis_alpha  -13.720      0.0
-  10  axis_beta     0.055      0.0
-  10  axis_omega    0.133      0.0
-   .  .             .          .
-   .  .             .          .
-   .  .             .          .
+  _diffrn_scan_frame_axis.frame_id
+  _diffrn_scan_frame_axis.axis_id
+  _diffrn_scan_frame_axis.angle
+  _diffrn_scan_frame_axis.displacement
+    1  axis_u        1.00000    0.0
+    1  axis_v       -0.49577    0.0
+    1  axis_w       -0.52302    0.0
+    1  axis_alpha  -29.891      0.0
+    1  axis_beta     0.055      0.0
+    1  axis_omega    0.101      0.0
+    2  axis_u        1.00000    0.0
+    2  axis_v       -0.46540    0.0
+    2  axis_w       -0.54400    0.0
+    2  axis_alpha  -28.089      0.0
+    2  axis_beta     0.053      0.0
+    2  axis_omega    0.101      0.0
+    3  axis_u        1.00000    0.0
+    3  axis v       -0.43528    0.0
+    3  axis_w       -0.56478    0.0
+    3  axis_alpha  -26.290      0.0
+    3  axis_beta     0.053      0.0
+    3  axis_omega    0.102      0.0
+    4  axis_u        1.00000    0.0
+    4  axis_v       -0.40537    0.0
+    4  axis_w       -0.58541    0.0
+    4  axis_alpha  -24.491      0.0
+    4  axis_beta     0.053      0.0
+    4  axis_omega    0.104      0.0
+    5  axis_u        1.00000    0.0
+    5  axis_v       -0.37559    0.0
+    5  axis_w       -0.60593    0.0
+    5  axis_alpha  -22.694      0.0
+    5  axis_beta     0.054      0.0
+    5  axis_omega    0.108      0.0
+    6  axis_u        1.00000    0.0
+    6  axis_v       -0.34588    0.0
+    6  axis_w       -0.62640    0.0
+    6  axis_alpha  -20.898      0.0
+    6  axis_beta     0.054      0.0
+    6  axis_omega    0.112      0.0
+    7  axis_u        1.00000    0.0
+    7  axis_v       -0.31619    0.0
+    7  axis_w       -0.64686    0.0
+    7  axis_alpha  -19.103      0.0
+    7  axis_beta     0.055      0.0
+    7  axis_omega    0.117      0.0
+    8  axis_u        1.00000    0.0
+    8  axis_v       -0.28646    0.0
+    8  axis_w       -0.66735    0.0
+    8  axis_alpha  -17.309      0.0
+    8  axis_beta     0.055      0.0
+    8  axis_omega    0.122      0.0
+    9  axis_u        1.00000    0.0
+    9  axis_v       -0.25661    0.0
+    9  axis_w       -0.68793    0.0
+    9  axis_alpha  -15.514      0.0
+    9  axis_beta     0.056      0.0
+    9  axis_omega    0.128      0.0
+   10  axis_u        1.00000    0.0
+   10  axis_v       -0.22660    0.0
+   10  axis_w       -0.70864    0.0
+   10  axis_alpha  -13.720      0.0
+   10  axis_beta     0.055      0.0
+   10  axis_omega    0.133      0.0
+    .  .             .          .
+    .  .             .          .
+    .  .             .          .
