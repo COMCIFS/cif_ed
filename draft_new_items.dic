@@ -1,3 +1,9 @@
+#\#CIF_2.0
+##############################################################################
+# Some possible additions to the initial cif_ed.dic                          #
+##############################################################################
+
+
 data_DRAFT_NEW_ITEMS
 
     _dictionary.title            DRAFT_NEW_ITEMS
@@ -30,7 +36,7 @@ save_DRAFT_NEW_ITEMS_HEAD
 
     _import.get
         [
-         {'dupl':Ignore  'file':https://github.com/COMCIFS/imgCIF/blob/master/cif_img.dic  'mode':Full  'save':HEAD
+         {'dupl':Ignore  'file':https://github.com/COMCIFS/imgCIF/blob/master/cif_img.dic  'mode':Full  'save':HEAD}
         ]
 
 save_
