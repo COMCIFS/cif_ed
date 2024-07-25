@@ -8,7 +8,8 @@ This project is best seen as an opportunity to focus on the new items required i
 
 This GitHub project contains:
 
-* cif_ed.dic : a draft electron diffraction dictionary. This is currently set up as a new extension dictionary, but if in the end only few new data names are needed, it may be incorporated into the core (and possibly imgCIF) dictionaries.
+* cif_ed.dic : a draft electron diffraction dictionary. This is currently set up as a new extension dictionary, but if in the end only few new data names are needed, it may be incorporated into the core dictionary.
+* draft_new_items.dic: a file containing additional definitions that are more likely to be incorporated in the future in the imgCIF dictionary 
 * docs : a folder containing supporting documentation.
   * docs/ed.pdf : a PDF typeset representation of the draft dictionary to facilitate review by people unfamiliar with DDL formalism.
   * docs/proposal.md : the initial proposals of the NanED standardisation committee, with suggested enhancements.
