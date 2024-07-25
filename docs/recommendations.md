@@ -108,7 +108,39 @@ _diffrn_detector.ed_calibration_constant    0.008259
 _diffrn_source.convergence_angle            0.000(5)
 _diffrn_source.ed_probe_formation           microdiffraction
 _refine_ls.sample_thickness                 0.014
+_refine_ls.sample_shape_expression          'F(\t) = 1 - ( 1 - \t^2^)^1/2^'
 
+```
+
+### `_exptl_crystal.mosaicity` and `_exptl_crystal.mosaicity_method`
+
+The mosaicity (in degrees) and method of determination may be supplied. If known, the average mosaic block size in ångström units may also be given using `_exptl_crystal.mosaic_block_size`.
+
+### `_diffrn_detector.ed_calibration_constant`
+
+The calibration factor for the electron diffraction camera constant.
+
+### `_diffrn_source.convergence_angle`
+The semi-angle of convergence of the beam may be given in degrees. Typically found in convergent-beam electron diffraction. Not necessary for parallel beams, though the given example shows an estimate of parallelism with a quoted standard uncertainty.
+
+### `_diffrn_source.ed_probe_formation`
+
+A code describing the probe size or selected-area electron diffraction technique used to illuminate the appropriate region of the sample.
+
+### `_refine_ls.sample_thickness` and `_refine_ls.sample_shape_expression`
+
+The refined sample thickness as determined by dynamical refinement, and an analytic expression describing the sample thickness distribution, according to the approach of Palatinus _et al._ (2015). _Acta Cryst._ A**71**, 235-244. If a simple formula for the shape cannot be provided, more details of the shape approximation may be provided in the free-text field `_refine_ls.sample_shape_details`.
+
+
+
+_Text below this line added 2024-07-25 in tentative anticipation of new items that would provide extensions to the imgCIF dictionary (i.e. raw data definitions)_
+
+
+## Per-frame information
+
+Example from the Zenodo deposition https://doi.org/10.5281/zenodo.7092770 of Hrushikesh & Suresh (2022).
+
+```
 loop_
   _diffrn_scan_frame.frame_id
   _diffrn_scan_frame.scan_id
@@ -145,27 +177,7 @@ loop_
    . . . .
 ```
 
-### `_exptl_crystal.mosaicity` and `_exptl_crystal.mosaicity_method`
-
-The mosaicity (in degrees) and method of determination may be supplied. If known, the average mosaic block size in ångström units may also be given using `_exptl_crystal.mosaic_block_size`.
-
-### `_diffrn_detector.ed_calibration_constant`
-
-The calibration factor for the electron diffraction camera constant.
-
-### `_diffrn_source.convergence_angle`
-The semi-angle of convergence of the beam may be given in degrees. Typically found in convergent-beam electron diffraction. Not necessary for parallel beams, though the given example shows an estimate of parallelism with a quoted standard uncertainty.
-
-### `_diffrn_source.ed_probe_formation`
-
-A code describing the probe size or selected-area electron diffraction technique used to illuminate the appropriate region of the sample.
-
-### `_refine_ls.sample_thickness`
-
-The refined sample thickness as determined by dynamical refinement [Palatinus _et al._ (2015). _Acta Cryst._ A**71**, 235-244].
-
 ### `_diffrn_scan_frame.precession_angle` and `_diffrn_scan_frame.scale_factor`
 
 Per-frame values of the beam precession angle and scale factor. Single-value attributes associated with each frame are looped in the DIFFRN_SCAN_FRAME category as used by imgCIF, which allows for frames from multiple scans to be combined in a single list. The frame orientation should also be recorded using the general axis descriptions supported by imgCIF. The example shows how rotations about arbitrary axes _u_, _v_, _w_ and α, β, ω are recorded for each frame in the DIFFRN_SCAN_FRAME_AXIS loop. The axes themselves are fully specified using data items from the top-level AXIS category and instrument-dependent categories describing local axis systems as defined in the imgCIF dictionary.
-
 

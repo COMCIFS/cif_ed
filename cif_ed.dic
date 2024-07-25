@@ -12,8 +12,8 @@ data_CIF_ED
 
     _dictionary.title            CIF_ED
     _dictionary.class            Instance
-    _dictionary.version          0.1.0
-    _dictionary.date             2024-05-15
+    _dictionary.version          0.1.0-dev
+    _dictionary.date             2024-07-25
     _dictionary.uri
         https://raw.githubusercontent.com/COMCIFS/cif_ed/main/cif_ed.dic
     _dictionary.ddl_conformance  4.2.0
@@ -112,6 +112,27 @@ save_chemical.absolute_configuration
 
 save_
 
+save_computing.sample_tracking
+
+    _definition.id                '_computing.sample_tracking'
+    _definition.update            2024-07-08
+    _description.text
+;
+    Reference to software used to track the position of a sample with
+    respect to the diffraction source beam. Typically used in 3D
+    electron diffraction. More details of the tracking method may be
+    provided in _diffrn_measurement.sample_tracking_method.
+;
+    _name.category_id             computing
+    _name.object_id               sample_tracking
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+    _description_example.case     'PyFast-ADT (Santucci, 2024)'
+
+save_
+
 save_diffrn.precession_angle
 
     _definition.id                '_diffrn.precession_angle'
@@ -148,6 +169,26 @@ save_diffrn.precession_angle_su
     _type.container               Single
     _type.contents                Real
     _units.code                   degrees
+
+save_
+
+save_diffrn_detector.ed_calibration_constant
+
+    _definition.id                '_diffrn_detector.ed_calibration_constant'
+    _definition.update            2024-07-15
+    _description.text
+;
+    The electron diffraction camera constant calibration factor.
+    Ref: Millette, J. (1987). The Microscope, 35, 107-117.
+;
+    _name.category_id             diffrn_detector
+    _name.object_id               ed_calibration_constant
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   reciprocal_angstroms_per_pixel
 
 save_
 
@@ -202,7 +243,7 @@ save_diffrn_measurement.integration
 ;
          continuous
 ;
-         Synonym for "rotation" commonly used in 3D electron diffraction.
+         Synonym for 'rotation' commonly used in 3D electron diffraction.
 ;
          rotation
 ;
@@ -218,10 +259,10 @@ save_diffrn_measurement.integration
 
 save_
 
-save_diffrn_measurement.tracking
+save_diffrn_measurement.sample_tracking
 
-    _definition.id                '_diffrn_measurement.tracking'
-    _definition.update            2024-05-15
+    _definition.id                '_diffrn_measurement.sample_tracking'
+    _definition.update            2024-07-25
     _description.text
 ;
     Yes or no flag indicating if a tracking method to follow the
@@ -229,7 +270,7 @@ save_diffrn_measurement.tracking
     very small crystals in electron diffraction experiments.
 ;
     _name.category_id             diffrn_measurement
-    _name.object_id               tracking
+    _name.object_id               sample_tracking
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -244,16 +285,16 @@ save_diffrn_measurement.tracking
 
 save_
 
-save_diffrn_measurement.tracking_method
+save_diffrn_measurement.sample_tracking_method
 
-    _definition.id                '_diffrn_measurement.tracking_method'
-    _definition.update            2024-05-07
+    _definition.id                '_diffrn_measurement.sample_tracking_method'
+    _definition.update            2024-07-25
     _description.text
 ;
     Description of the method used to follow the crystal during data collection.
 ;
     _name.category_id             diffrn_measurement
-    _name.object_id               tracking_method
+    _name.object_id               sample_tracking_method
     _type.purpose                 Describe
     _type.source                  Recorded
     _type.container               Single
@@ -288,6 +329,56 @@ save_diffrn_radiation.illumination_mode
 
 save_
 
+save_diffrn_source.convergence_angle
+
+    _definition.id                '_diffrn_source.convergence_angle'
+    _definition.update            2024-07-11
+    _description.text
+;
+    The angle of convergence of the source beam (for example in
+    convergent-beam electron diffraction). The convergence angle
+    is the angular spread of the cone of illumination (i.e. 2\a,
+    where the semi-angle \a is measured from the axis defining the
+    beam direction).
+;
+    _name.category_id             diffrn_source
+    _name.object_id               convergence_angle
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   degrees
+
+save_
+
+save_diffrn_source.ed_probe_formation
+
+    _definition.id                '_diffrn_source.ed_probe_formation'
+    _definition.update            2024-07-15
+    _description.text
+;
+    Enumerated code for the technique in electron diffraction used to
+    determine the probe size to illuminate the appropriate region of
+    the sample by the incident radiation beam.
+    (Terminology from https://www.globalsino.com/EM/page2695.html.)
+;
+    _name.category_id             diffrn_source
+    _name.object_id               ed_probe_formation
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         microdiffraction         'Probe size 500-100nm'
+         nanodiffraction          'Probe size <100nm'
+         SAED                     'Selected-area electron diffraction.'
+
+save_
+
 save_diffrn_source.size
 
     _definition.id                '_diffrn_source.size'
@@ -310,6 +401,119 @@ save_diffrn_source.size
          'broad focus'
          '300 nm electron beam in NBED (nano-beam electron diffraction)'
          '1 micrometre aperture size in SAED (selected-aperture el. diffr.)'
+
+save_
+
+save_exptl_crystal.mosaic_block_size
+
+    _definition.id                '_exptl_crystal.mosaic_block_size'
+    _definition.update            2024-07-22
+    _description.text
+;
+    Isotropic and resolution-independent term representing the average size of
+    mosaic domains in the crystal specified in angstroms. Larger size indicates
+    better ordered crystals.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaic_block_size
+    _type.purpose                 Measurand
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.:
+    _units.code                   angstroms
+
+save_
+
+save_exptl_crystal.mosaic_block_size_su
+
+    _definition.id                '_exptl_crystal.mosaic_block_size_su'
+    _definition.update            2024-07-22
+    _description.text
+;
+    Standard uncertainty of _exptl_crystal.mosaic_block_size.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaic_block_size_su
+    _name.linked_item_id          '_exptl_crystal.mosaic_block_size'
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   angstroms
+
+save_
+
+save_exptl_crystal.mosaic_method
+
+    _definition.id                '_exptl_crystal.mosaic_method'
+    _definition.update            2024-05-07
+    _description.text
+;
+    How parameters derived from the spot shape (such as mosaic block
+    size and rotation, beam divergence, and crossfire) and their
+    errors were estimated.
+
+    This can be a written description or a citation to a specific
+    software package that determined these parameters.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaic_method
+    _type.purpose                 Describe
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Text
+    _description_example.case     'Determined from rocking curve.'
+
+save_
+
+save_exptl_crystal.mosaicity
+
+    _definition.id                '_exptl_crystal.mosaicity'
+    _definition.update            2024-07-09
+    _description.text
+;
+    Isotropic approximation of the distribution of mis-orientation angles
+    specified in degrees of all the mosaic domain blocks in the crystal,
+    represented as a standard deviation. Here, a mosaic block is a set of
+    contiguous unit cells assumed to be perfectly aligned. Lower mosaicity
+    indicates better ordered crystals. See for example:
+
+    Nave, C. (1998). Acta Cryst. D54, 848-853.
+
+    Note that many software packages estimate the mosaic rotation distribution
+    differently and may combine several physical properties of the experiment
+    into a single mosaic term. This term will help fit the modelled spots
+    to the observed spots without necessarily being directly related to the
+    physics of the crystal itself.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaicity
+    _type.purpose                 Measurand
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.:
+    _units.code                   degrees
+
+save_
+
+save_exptl_crystal.mosaicity_su
+
+    _definition.id                '_exptl_crystal.mosaicity_su'
+    _definition.update            2024-07-09
+    _description.text
+;
+    Standard uncertainty of _exptl_crystal.mosaicity.
+;
+    _name.category_id             exptl_crystal
+    _name.object_id               mosaicity_su
+    _name.linked_item_id          '_exptl_crystal.mosaicity'
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   degrees
 
 save_
 
@@ -597,6 +801,99 @@ save_refine_ls.abs_structure_z-score
 
 save_
 
+save_refine_ls.sample_shape_details
+
+    _definition.id                '_refine_ls.sample_shape_details'
+    _definition.update            2024-07-25
+    _description.text
+;
+    Additional details describing the sample thickness when calculated
+    during dynamical refinement where this cannot be defined completely by
+    the formula given in _refine_ls.sample_shape_expression.
+    Ref: Palatinus, L., Petricek, V. & Correa, C. A. (2015). Acta
+         Cryst. A71, 235-244.
+;
+    _name.category_id             refine_ls
+    _name.object_id               sample_shape_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_refine_ls.sample_shape_expression
+
+    _definition.id                '_refine_ls.sample_shape_expression'
+    _definition.update            2024-07-25
+    _description.text
+;
+    Formula for the sample thickness distribution when the sample
+    thickness is considered during dynamical refinement.
+    Ref: Palatinus, L., Petricek, V. & Correa, C. A. (2015). Acta
+         Cryst. A71, 235-244.
+;
+    _name.category_id             refine_ls
+    _name.object_id               sample_shape_expression
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+    _description_example.case
+;
+    F(\t) = 1 - ( 1 - \t^2^)^1/2^
+;
+    _description_example.detail
+;
+    The cumulative distribution function in terms of the reduced thickness \t
+    of a sample treated as a cylinder. \t = t/t~m~, where t is the thickness
+    at the point illuminated and t~m~ the maximum thickness of the cylinder
+    (i.e. its diameter).
+;
+
+save_
+
+save_refine_ls.sample_thickness
+
+    _definition.id                '_refine_ls.sample_thickness'
+    _definition.update            2024-07-08
+    _description.text
+;
+    The refined sample thickness as determined by dynamical refinement.
+    Ref: Palatinus, L., Petricek, V. & Correa, C. A. (2015). Acta
+         Cryst. A71, 235-244.
+;
+    _name.category_id             refine_ls
+    _name.object_id               sample_thickness
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.:
+    _units.code                   nanometres
+    _description_example.case     35(2)
+
+save_
+
+save_refine_ls.sample_thickness_su
+
+    _definition.id                '_refine_ls.sample_thickness_su'
+    _definition.update            2024-07-08
+    _description.text
+;
+    Standard uncertainty of _refine_ls.sample_thickness.
+;
+    _name.category_id             refine_ls
+    _name.object_id               sample_thickness_su
+    _name.linked_item_id          '_refine_ls.sample_thickness'
+    _type.purpose                 SU
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   nanometres
+
+save_
+
     loop_
       _dictionary_audit.version
       _dictionary_audit.date
@@ -631,4 +928,29 @@ save_
 
        Updated the CIF_CORE dictionary import statement with the new Head
        category name.
+;
+         0.1.0-dev                2024-07-25
+;
+       Changed the version number to 0.1.0-dev to indicate this is a
+       development version. Still under discussion as to whether this will
+       finish as a standalone dictionary, or simply provide a development
+       container for new items that will go into the core (and/org imgCIF).
+
+       Changed _diffrn_measurement.tracking to
+       _diffrn_measurement.sample_tracking and
+       _diffrn_measurement.tracking_method to
+       _diffrn_measurement.sample_tracking_method. (bm, after Lukas Palatinus)
+
+       Added _computing.sample_tracking,
+       _diffrn_detector.ed_calibration_constant,
+       _diffrn_source.convergence_angle,
+       _diffrn_source.ed_probe_formation (bm, after Ashwin Suresh)
+
+       Added (based on the PDBx/mmCIF dictionary)
+       _exptl_crystal.mosaic_block_size, _exptl_crystal.mosaic_method,
+       _exptl_crystal.mosaicity and related *_su terms.
+
+       Added _refine_ls.sample_thickness and *_su,
+       _refine_ls.sample_shape_expression and _refine_ls.sample_shape_details
+       (bm, after Ashwin and Lukas)
 ;
