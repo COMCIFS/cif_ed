@@ -106,7 +106,7 @@ _exptl_crystal.method                 'From rocking curve, width 0.00070'
 ```
 _diffrn_detector.ed_calibration_constant    0.008259
 _diffrn_source.convergence_angle            0.000(5)
-_diffrn_source.ed_probe_formation           microdiffraction
+_diffrn_source.ed_probe_type                microdiffraction
 _refine_ls.sample_thickness                 0.014
 _refine_ls.sample_shape_expression          'F(\t) = 1 - ( 1 - \t^2^)^1/2^'
 
@@ -121,9 +121,9 @@ The mosaicity (in degrees) and method of determination may be supplied. If known
 The calibration factor for the electron diffraction camera constant.
 
 ### `_diffrn_source.convergence_angle`
-The semi-angle of convergence of the beam may be given in degrees. Typically found in convergent-beam electron diffraction. Not necessary for parallel beams, though the given example shows an estimate of parallelism with a quoted standard uncertainty.
+The angle of convergence of the beam may be given in degrees. Typically found in convergent-beam electron diffraction. Not necessary for parallel beams, though the given example describes a parallel beam with a quoted standard uncertainty.
 
-### `_diffrn_source.ed_probe_formation`
+### `_diffrn_source.ed_probe_type`
 
 A code describing the probe size or selected-area electron diffraction technique used to illuminate the appropriate region of the sample.
 
