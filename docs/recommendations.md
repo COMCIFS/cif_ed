@@ -68,17 +68,17 @@ These items replace the terms `_diffrn_detector` and `_diffrn_detector_type` res
 
 If beam precession was used, this data item should be present and have the value 'yes' or 'y'. The precession angle should be given as the value of `_diffrn_precession.angle`, including standard uncertainty where possible.
 
-### `_diffrn_measurement.integration`
+### `_diffrn_measurement.rotation_mode`
 
-The method of collecting data from regions of reciprocal space should take one of the values 'beam-tilt', 'rotation' (or its synonym 'continuous') or 'stepwise' according to the technique used. The beam-tilt method is sometimes called 'the rotation method' in 3D electron diffraction.
+The method of collecting data from regions of reciprocal space should take one of the values 'rotation' or 'stepwise' according to the technique used. Continuous rotation is the usual method in X-ray crystallography. 'Stepwise' mode icludes cases where the sample is panned or tilted in discrete steps and/or the electron beam precesses around a conical surface normal to the sample.
 
 ### `_exptl.crystals_number`
 
 The number of crystals used in the measurement of intensities should be specified.
 
-### `_refine.diffraction_theory`
+### `_refine.diffraction_theory` and `_refine.diffraction_theory_details`
 
-This data item can take the values 'dynamical' and 'kinematical', and should always be specified if refinement is performed using the dynamical theory.
+The enumerated data item `_refine.diffraction_theory` can take the values 'dynamical' and 'kinematical', and should always be specified if refinement is performed using the dynamical theory. `_refine.diffraction_theory_details` is a free-text field where _e.g._ a description may be given of the parameters that were refined dynamically. 
 
 ### `refine_diff.density_max`, `_min` and `_RMS`
 
@@ -89,7 +89,7 @@ These quantities were defined in the original core CIF dictionary as indications
 The statistical _z_ score can be determined as a robust measure of the confidence of an absolute structure assignment according to the procedure described in Klar, P. B., Krysiak, Y., Xu, H., Steciuk, G.,Cho, J., Zou, X. & Palatinus, L. (2023). Accurate structure models and absolute configuration determination using dynamical effects in continuous-rotation 3D electron diffraction data. _Nature Chem._ **15**, 848-855. This method is not specific to electron diffraction and may also be used for X-ray diffraction data, but for X-ray work it has largely been superseded by the Flack, Rogers and Parsons parameters.
 
 
-_Text below this line added 2024-07-22 in anticipation of new draft items_
+_Text below this line added 2024-07-22 in anticipation of new draft items and updated 2024-12-02_
 
 ## More details of data collection
 
@@ -104,11 +104,11 @@ _exptl_crystal.method                 'From rocking curve, width 0.00070'
 
 (_b_)
 ```
-_diffrn_detector.ed_calibration_constant    0.008259
-_diffrn_source.convergence_angle            0.000(5)
-_diffrn_source.ed_probe_type                microdiffraction
-_refine_ls.sample_thickness                 0.014
-_refine_ls.sample_shape_expression          'F(\t) = 1 - ( 1 - \t^2^)^1/2^'
+_diffrn_detector.ed_calibration_constant      0.008259
+_diffrn_source.convergence_angle              0.000(5)
+_diffrn_source.ed_diffracting_area_selection  probe
+_refine_ls.sample_thickness                   0.014
+_refine_ls.sample_shape_expression            'F(\t) = 1 - ( 1 - \t^2^)^1/2^'
 
 ```
 
@@ -123,9 +123,9 @@ The calibration factor for the electron diffraction camera constant.
 ### `_diffrn_source.convergence_angle`
 The angle of convergence of the beam may be given in degrees. Typically found in convergent-beam electron diffraction. Not necessary for parallel beams, though the given example describes a parallel beam with a quoted standard uncertainty.
 
-### `_diffrn_source.ed_probe_type`
+### `_diffrn_source.ed_diffracting_area_selection`
 
-A code describing the probe size or selected-area electron diffraction technique used to illuminate the appropriate region of the sample.
+A code specifying whether the diffraction region was selected by the size of the beam or whether selected-area electron diffraction technique used to illuminate the appropriate region of the sample.
 
 ### `_refine_ls.sample_thickness` and `_refine_ls.sample_shape_expression`
 
@@ -133,7 +133,7 @@ The refined sample thickness as determined by dynamical refinement, and an analy
 
 
 
-_Text below this line added 2024-07-25 in tentative anticipation of new items that would provide extensions to the imgCIF dictionary (i.e. raw data definitions)_
+_Text below this line added 2024-07-25 in tentative anticipation of new items that would provide extensions to the imgCIF dictionary (i.e. raw data definitions). These suggestions are currently not under active consideration_
 
 
 ## Per-frame information

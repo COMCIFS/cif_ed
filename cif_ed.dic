@@ -13,7 +13,7 @@ data_CIF_ED
     _dictionary.title            CIF_ED
     _dictionary.class            Instance
     _dictionary.version          0.1.0-dev
-    _dictionary.date             2024-07-26
+    _dictionary.date             2024-12-02
     _dictionary.uri
         https://raw.githubusercontent.com/COMCIFS/cif_ed/main/cif_ed.dic
     _dictionary.ddl_conformance  4.2.0
@@ -177,7 +177,7 @@ save_diffrn.precession_semi_angle
 
 save_
 
-save_diffrn.precession_angle_su
+save_diffrn.precession_semi_angle_su
 
     _definition.id                '_diffrn.precession_semi_angle_su'
     _definition.update            2024-04-22
@@ -241,17 +241,17 @@ save_diffrn_measurement.method_precession
 
 save_
 
-save_diffrn_measurement.integration
+save_diffrn_measurement.rotation_mode
 
-    _definition.id                '_diffrn_measurement.integration'
-    _definition.update            2024-05-15
+    _definition.id                '_diffrn_measurement.rotation_mode'
+    _definition.update            2024-12-02
     _description.text
 ;
     Code describing the technique used to sample as completely as possible
     the accessible range of reciprocal space.
 ;
     _name.category_id             diffrn_measurement
-    _name.object_id               integration
+    _name.object_id               rotation_mode
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -259,26 +259,17 @@ save_diffrn_measurement.integration
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         beam-tilt
-;
-         The radiation beam is tilted in order to collect intensities
-         in different regions of reciprocal space while the sample
-         remains stationary.
-;
-         continuous
-;
-         Synonym for 'rotation' commonly used in 3D electron diffraction.
-;
          rotation
 ;
          The detector records diffracted intensities continuously while the
-         sample is rotated. This is the usual mode for X-ray crystallography.
+         sample is rotated.
 ;
          stepwise
 ;
-         The detector records diffracted intensities at intervals while the
-         sample is panned or tilted in discrete steps. Often used in 3D
-         electron diffraction.
+         The detector records diffracted intensities while the sample
+         is stationary and the beam is either steady or performing a
+         defined motion, typically precessing around a conical surface
+         normal to the sample (precession electron diffraction).
 ;
 
 save_
@@ -376,19 +367,18 @@ save_diffrn_source.convergence_angle
 
 save_
 
-save_diffrn_source.ed_probe_type
+save_diffrn_source.ed_diffracting_area_selection
 
-    _definition.id                '_diffrn_source.ed_probe_type'
-    _definition.update            2024-07-15
+    _definition.id                '_diffrn_source.ed_diffracting_area_selection'
+    _definition.update            2024-12-02
     _description.text
 ;
     Enumerated code for the technique in electron diffraction used to
-    determine the probe size to illuminate the appropriate region of
-    the sample by the incident radiation beam.
-    (Terminology from https://www.globalsino.com/EM/page2695.html.)
+    determine whether probe or SAED was used to illuminate the appropriate
+    region of the sample by the incident radiation beam.
 ;
     _name.category_id             diffrn_source
-    _name.object_id               ed_probe_type
+    _name.object_id               ed_diffracting_area_selection
     _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
@@ -397,9 +387,8 @@ save_diffrn_source.ed_probe_type
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         microdiffraction         'Probe size 500-100nm'
-         nanodiffraction          'Probe size <100nm'
-         SAED                     'Selected-area electron diffraction.'
+         probe  'Diffraction region selected by the size of the probe (= beam)'
+         SAED   'Selected-area electron diffraction.'
 
 save_
 
@@ -538,43 +527,6 @@ save_exptl_crystal.mosaicity_su
     _type.container               Single
     _type.contents                Real
     _units.code                   degrees
-
-save_
-
-save_refine.diffraction_theory
-
-    _definition.id                '_refine.diffraction_theory'
-    _definition.update            2024-05-15
-    _description.text
-;
-    A code describing the approach to the calculation of the
-    diffracted intensities. In the kinematical approximation,
-    interactions of diffracted waves with matter are neglected, and
-    integrated intensities of the Bragg reflections are proportional
-    to the square of the modulus of the structure factor. In the
-    dynamical calculation, interactions between diffracted waves are
-    taken into account, and the proportionality of the intensities and
-    the structure factors is not preserved.
-;
-    _name.category_id             refine
-    _name.object_id               diffraction_theory
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-    loop_
-      _enumeration_set.state
-      _enumeration_set.detail
-         dynamical
-;
-         Interactions between diffracted waves and matter are taken into
-         account when calculating the amplitudes of the diffracted beams.
-;
-         kinematical
-;
-         Interactions between diffracted waves and matter are ignored
-         when calculating the amplitudes of diffracted beams.
-;
 
 save_
 
@@ -799,6 +751,62 @@ save_refine_diff.density_rms_su
 
 save_
 
+save_refine.diffraction_theory
+
+    _definition.id                '_refine.diffraction_theory'
+    _definition.update            2024-05-15
+    _description.text
+;
+    A code describing the approach to the calculation of the
+    diffracted intensities. In the kinematical approximation,
+    interactions of diffracted waves with matter are neglected, and
+    integrated intensities of the Bragg reflections are proportional
+    to the square of the modulus of the structure factor. In the
+    dynamical calculation, interactions between diffracted waves are
+    taken into account, and the proportionality of the intensities and
+    the structure factors is not preserved.
+;
+    _name.category_id             refine
+    _name.object_id               diffraction_theory
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         dynamical
+;
+         Interactions between diffracted waves and matter are taken into
+         account when calculating the amplitudes of the diffracted beams.
+;
+         kinematical
+;
+         Interactions between diffracted waves and matter are ignored
+         when calculating the amplitudes of diffracted beams.
+;
+
+save_
+
+save_refine.diffraction_theory_details
+
+    _definition.id                '_refine.diffraction_theory_details'
+    _definition.update            2024-12-02
+    _description.text
+;
+    Details needed to characterize the approach to the calculation of the
+    diffracted intensities, such as a description of the parameters that
+    were refined dynamically.
+;
+    _name.category_id             refine
+    _name.object_id               diffraction_theory_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_refine_ls.abs_structure_z-score
 
     _definition.id                '_refine_ls.abs_structure_z-score'
@@ -953,7 +961,7 @@ save_
        Updated the CIF_CORE dictionary import statement with the new Head
        category name.
 ;
-         0.1.0-dev                2024-07-26
+         0.1.0-dev                2024-12-02
 ;
        Changed the version number to 0.1.0-dev to indicate this is a
        development version. Still under discussion as to whether this will
@@ -982,4 +990,12 @@ save_
 
        Renamed _diffrn.precession_angle to _diffrn.precession_semi_angle
        (and corresponding *_su term).
+
+       Following community consultation (via Discord): renamed
+       _diffrn_source.ed_probe_type as
+       _diffrn_source.ed_diffracting_area_selection and updated
+       definition and enumeration list; added
+       _refine.diffraction_theory_details; renamed
+       _diffrn_measurement.integration as _diffrn_measurement.rotation_mode
+       and revised enumeration list;
 ;
