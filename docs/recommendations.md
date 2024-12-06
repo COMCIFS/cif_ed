@@ -80,9 +80,9 @@ The number of crystals used in the measurement of intensities should be specifie
 
 The enumerated data item `_refine.diffraction_theory` can take the values 'dynamical' and 'kinematical', and should always be specified if refinement is performed using the dynamical theory. `_refine.diffraction_theory_details` is a free-text field where _e.g._ a description may be given of the parameters that were refined dynamically. 
 
-### `refine_diff.density_max`, `_min` and `_RMS`
+### `_refine_diff.potential_max`, `_min` and `_RMS`
 
-These quantities were defined in the original core CIF dictionary as indications of the final difference electron density. For electron diffraction, they should report the maximum, minimum and mean difference potential in the final difference Fourier map, and be expressed in units of electrons per ångström.
+These quantities are similar to those defined in the original core CIF dictionary describing features of the final difference electron density (_refine_diff.density_max` _etc._). For electron diffraction, they report the maximum, minimum and mean residual electrostatic potential in the final difference Fourier map, and are expressed in units of electrons per ångström.
 
 ### `_refine_ls.abs_structure_z-score`
 

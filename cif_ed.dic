@@ -13,7 +13,7 @@ data_CIF_ED
     _dictionary.title            CIF_ED
     _dictionary.class            Instance
     _dictionary.version          0.1.0-dev
-    _dictionary.date             2024-12-02
+    _dictionary.date             2024-12-06
     _dictionary.uri
         https://raw.githubusercontent.com/COMCIFS/cif_ed/main/cif_ed.dic
     _dictionary.ddl_conformance  4.2.0
@@ -374,8 +374,8 @@ save_diffrn_source.ed_diffracting_area_selection
     _description.text
 ;
     Enumerated code for the technique in electron diffraction used to
-    determine whether probe or SAED was used to illuminate the appropriate
-    region of the sample by the incident radiation beam.
+    select the region of the sample from which the diffraction pattern
+    is obtained.
 ;
     _name.category_id             diffrn_source
     _name.object_id               ed_diffracting_area_selection
@@ -388,7 +388,7 @@ save_diffrn_source.ed_diffracting_area_selection
       _enumeration_set.state
       _enumeration_set.detail
          probe  'Diffraction region selected by the size of the probe (= beam)'
-         SAED   'Selected-area electron diffraction.'
+         SAED   'Selected-area electron diffraction'
 
 save_
 
@@ -530,224 +530,119 @@ save_exptl_crystal.mosaicity_su
 
 save_
 
-save_refine_diff.density_max
+save_refine_diff.potential_max
 
-    _definition.id                '_refine_diff.density_max'
-
-    loop_
-      _alias.definition_id
-         '_refine_diff_density_max'
-         '_refine.diff_density_max'
-
-    _definition.update            2024-05-01
+    _definition.id                '_refine_diff.potential_max'
+    _definition.update            2024-12-06
     _description.text
 ;
-    Maximum density value in a difference Fourier map.
+    Maximum electrostatic potential value in a difference Fourier map.
 ;
     _name.category_id             refine_diff
-    _name.object_id               density_max
+    _name.object_id               potential_max
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            -100.:
-    _method.purpose               Definition
-    _method.expression
-;
-    # Default units. Applicable to X-ray and gamma radiation.
-    _units.code = "electrons_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "neutron")
-        _units.code = "femtometres_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "electron")
-        _units.code = "electrons_per_angstrom"
-;
+    _units.code                   electrons_per_angstrom
 
 save_
 
-save_refine_diff.density_max_su
+save_refine_diff.potential_max_su
 
-    _definition.id                '_refine_diff.density_max_su'
-
-    loop_
-      _alias.definition_id
-         '_refine_diff_density_max_su'
-         '_refine.diff_density_max_esd'
-
-    _definition.update            2024-05-01
+    _definition.id                '_refine_diff.potential_max_su'
+    _definition.update            2024-12-06
     _description.text
 ;
-    Standard uncertainty of _refine_diff.density_max.
+    Standard uncertainty of _refine_diff.potential_max.
 ;
     _name.category_id             refine_diff
-    _name.object_id               density_max_su
-    _name.linked_item_id          '_refine_diff.density_max'
+    _name.object_id               potential_max_su
+    _name.linked_item_id          '_refine_diff.potential_max'
     _type.purpose                 SU
     _type.source                  Related
     _type.container               Single
     _type.contents                Real
-    _method.purpose               Definition
-    _method.expression
-;
-    # Default units. Applicable to X-ray and gamma radiation.
-    _units.code = "electrons_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "neutron")
-        _units.code = "femtometres_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "electron")
-        _units.code = "electrons_per_angstrom"
-;
+    _units.code                   electrons_per_angstrom
 
 save_
 
-save_refine_diff.density_min
+save_refine_diff.potential_min
 
-    _definition.id                '_refine_diff.density_min'
-
-    loop_
-      _alias.definition_id
-         '_refine_diff_density_min'
-         '_refine.diff_density_min'
-
-    _definition.update            2024-05-01
+    _definition.id                '_refine_diff.potential_min'
+    _definition.update            2024-12-06
     _description.text
 ;
-    Minimum density value in a difference Fourier map.
+    Minimum electrostatic potential value in a difference Fourier map.
 ;
     _name.category_id             refine_diff
-    _name.object_id               density_min
+    _name.object_id               potential_min
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            :100.
-    _method.purpose               Definition
-    _method.expression
-;
-    # Default units. Applicable to X-ray and gamma radiation.
-    _units.code = "electrons_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "neutron")
-        _units.code = "femtometres_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "electron")
-        _units.code = "electrons_per_angstrom"
-;
+    _units.code                   electrons_per_angstrom
 
 save_
 
-save_refine_diff.density_min_su
+save_refine_diff.potential_min_su
 
-    _definition.id                '_refine_diff.density_min_su'
-
-    loop_
-      _alias.definition_id
-         '_refine_diff_density_min_su'
-         '_refine.diff_density_min_esd'
-
-    _definition.update            2024-05-01
+    _definition.id                '_refine_diff.potential_min_su'
+    _definition.update            2024-12-06
     _description.text
 ;
-    Standard uncertainty of _refine_diff.density_min.
+    Standard uncertainty of _refine_diff.potential_min.
 ;
     _name.category_id             refine_diff
-    _name.object_id               density_min_su
-    _name.linked_item_id          '_refine_diff.density_min'
+    _name.object_id               potential_min_su
+    _name.linked_item_id          '_refine_diff.potential_min'
     _type.purpose                 SU
     _type.source                  Related
     _type.container               Single
     _type.contents                Real
-    _method.purpose               Definition
-    _method.expression
-;
-    # Default units. Applicable to X-ray and gamma radiation.
-    _units.code = "electrons_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "neutron")
-        _units.code = "femtometres_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "electron")
-        _units.code = "electrons_per_angstrom"
-;
+    _units.code                   electrons_per_angstrom
 
 save_
 
-save_refine_diff.density_rms
+save_refine_diff.potential_rms
 
-    _definition.id                '_refine_diff.density_RMS'
-
-    loop_
-      _alias.definition_id
-         '_refine_diff_density_RMS'
-         '_refine.diff_density_RMS'
-
-    _definition.update            2024-05-01
+    _definition.id                '_refine_diff.potential_RMS'
+    _definition.update            2024-12-06
     _description.text
 ;
-    Root mean square density value in a difference Fourier map.
+    Root mean square electrostatic potential value in a difference Fourier map.
     This value is measured with respect to the arithmetic mean
-    density and is derived from summations over each grid point
+    potential and is derived from summations over each grid point
     in the asymmetric unit of the cell. This quantity is useful
     for assessing the significance of *_min and *_max values,
     and also for defining suitable contour levels.
 ;
     _name.category_id             refine_diff
-    _name.object_id               density_RMS
+    _name.object_id               potential_RMS
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            -100.:100.
-    _method.purpose               Definition
-    _method.expression
-;
-    # Default units. Applicable to X-ray and gamma radiation.
-    _units.code = "electrons_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "neutron")
-        _units.code = "femtometres_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "electron")
-        _units.code = "electrons_per_angstrom"
-;
+    _units.code                   electrons_per_angstrom
 
 save_
 
-save_refine_diff.density_rms_su
+save_refine_diff.potential_rms_su
 
-    _definition.id                '_refine_diff.density_RMS_su'
-
-    loop_
-      _alias.definition_id
-         '_refine_diff_density_RMS_su'
-         '_refine.diff_density_RMS_esd'
-
-    _definition.update            2024-05-01
+    _definition.id                '_refine_diff.potential_RMS_su'
+    _definition.update            2024-12-06
     _description.text
 ;
-    Standard uncertainty of _refine_diff.density_RMS.
+    Standard uncertainty of _refine_diff.potential_RMS.
 ;
     _name.category_id             refine_diff
-    _name.object_id               density_RMS_su
-    _name.linked_item_id          '_refine_diff.density_RMS'
+    _name.object_id               potential_RMS_su
+    _name.linked_item_id          '_refine_diff.potential_RMS'
     _type.purpose                 SU
     _type.source                  Related
     _type.container               Single
     _type.contents                Real
-    _method.purpose               Definition
-    _method.expression
-;
-    # Default units. Applicable to X-ray and gamma radiation.
-    _units.code = "electrons_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "neutron")
-        _units.code = "femtometres_per_angstrom_cubed"
-
-    If (_diffrn_radiation.probe == "electron")
-        _units.code = "electrons_per_angstrom"
-;
+    _units.code                   electrons_per_angstrom
 
 save_
 
@@ -961,7 +856,7 @@ save_
        Updated the CIF_CORE dictionary import statement with the new Head
        category name.
 ;
-         0.1.0-dev                2024-12-02
+         0.1.0-dev                2024-12-06
 ;
        Changed the version number to 0.1.0-dev to indicate this is a
        development version. Still under discussion as to whether this will
@@ -997,5 +892,9 @@ save_
        definition and enumeration list; added
        _refine.diffraction_theory_details; renamed
        _diffrn_measurement.integration as _diffrn_measurement.rotation_mode
-       and revised enumeration list;
+       and revised enumeration list.
+
+       Introduced _refine_diff.potential_max, *_min, *_RMS and associated
+       SU values (replacing updated REFINE_DIFF density terms) to reflect
+       correct practice in ED. (bm/Lukas)
 ;
