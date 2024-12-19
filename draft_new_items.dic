@@ -106,7 +106,7 @@ save_diffrn_scan_frame.scale_factor_su
     _definition.update            2024-07-15
     _description.text
 ;
-    The scale factor for this frame.
+    Standard uncertainty of _diffrn_scan_frame.scale_factor.
 ;
     _name.category_id             diffrn_scan_frame
     _name.object_id               scale_factor_su
