@@ -10,7 +10,7 @@ Most of the definitions in the core CIF dictionary can be applied to a descripti
 _exptl_crystal.description            'nanocrystal'
 _exptl_crystal.colour                 'orange'
 _diffrn.ambient_temperature           303(2)
-_diffrn_radiation.wavelength          0.0335
+_diffrn_radiation_wavelength.value    0.0335(2)
 _diffrn_radiation.probe               'electron'
 _diffrn_radiation.type                'electron'
 _diffrn_source.description            '120 kV electron microscope'
@@ -22,8 +22,8 @@ _diffrn_detector.make                 'ASI Timepix'
 _diffrn_measurement.method
                   'stepwise precession-assisted 3D electron diffraction'
 _diffrn_measurement.method_precession  yes
-_diffrn_precession.angle               1.0(2)
-_diffrn_measurement.integration        stepwise
+_diffrn.precession_semi_angle          1.0(2)
+_diffrn_measurement.rotation_mode      stepwise
 
 ```
 
@@ -35,9 +35,9 @@ For sample materials of a scale suitable for structure determination by electron
 
 The crystal colour is normally required by checkCIF, but can be difficult or impossible to determine for nanocrystals. In such a case the special CIF character `?` (unquoted) may be used with the meaning 'unknown', or a value of 'undetermined' may be given.
 
-### `_diffrn_measurement.tracking` and `_diffrn_measurement.tracking_method`
+### `_diffrn_measurement.sample_tracking` and `_diffrn_measurement.sample_tracking_method`
 
-`_diffrn_measurement.tracking` is a simple yes/no code to indicate if some tracking method was used to maximize the time that the sample is illuminated by the crystal, if the crystal drifts out of the beam during data collection. Details of the method can be given as free text in the `_diffrn_measurement.tracking_method` field. _A literature reference may also be supplied with the data item `_computing.sample_tracking`._
+`_diffrn_measurement.sample_tracking` is a simple yes/no code to indicate if some tracking method was used to maximize the time that the sample is illuminated by the crystal, if the crystal drifts out of the beam during data collection. Details of the method can be given as free text in the `_diffrn_measurement.tracking_method` field. _A literature reference may also be supplied with the data item `_computing.sample_tracking`._
 
 ### `_diffrn_radiation.illumination_mode`
 
@@ -56,9 +56,9 @@ These items replace the deprecated terms `_diffrn_source` and `_diffrn_source_ty
 
 This free-text field, already present in the core dictionary, can be used to describe the appropriate measure of the beam size at the sample. For selected-aperture electron diffraction, this should be the beam width corresponding to the aperture setting, and not the total beam width.
 
-### `_diffrn_source.voltage` and `_diffrn_radiation.wavelength`
+### `_diffrn_source.voltage` and `_diffrn_radiation_wavelength.value`
 
-Both should be supplied for electron diffraction studies. The value of `_diffrn_radiation.wavelength` is expected to include a standard uncertainty to express the expected wavelength spread.
+Both should be supplied for electron diffraction studies. The value of `_diffrn_radiation_wavelength.value` is expected to include a standard uncertainty to express the expected wavelength spread.
 
 ### `_diffrn_detector.description` and `_diffrn_detector.make`
 
@@ -66,11 +66,11 @@ These items replace the terms `_diffrn_detector` and `_diffrn_detector_type` res
 
 ### `_diffrn_measurement.method_precession`
 
-If beam precession was used, this data item should be present and have the value 'yes' or 'y'. The precession angle should be given as the value of `_diffrn_precession.angle`, including standard uncertainty where possible.
+If beam precession was used, this data item should be present and have the value 'yes' or 'y'. The precession angle should be given as the value of `_diffrn.precession_semi_angle`, including standard uncertainty where possible.
 
 ### `_diffrn_measurement.rotation_mode`
 
-The method of collecting data from regions of reciprocal space should take one of the values 'rotation' or 'stepwise' according to the technique used. Continuous rotation is the usual method in X-ray crystallography. 'Stepwise' mode icludes cases where the sample is panned or tilted in discrete steps and/or the electron beam precesses around a conical surface normal to the sample.
+The method of collecting data from regions of reciprocal space should take one of the values 'rotation' or 'stepwise' according to the technique used. Continuous rotation is the usual method in X-ray crystallography. 'Stepwise' mode includes cases where the sample is panned or tilted in discrete steps and/or the electron beam precesses around a conical surface normal to the sample.
 
 ### `_exptl.crystals_number`
 
@@ -99,20 +99,20 @@ Examples are based on (_a_) an unpublished CIF from *PETS2* describing a dynamic
 
 ```
 _exptl_crystal.mosaicity              0.050
-_exptl_crystal.method                 'From rocking curve, width 0.00070'
+_exptl_crystal.mosaic_method          'From rocking curve, width 0.00070'
 ```
 
 (_b_)
 ```
 _diffrn_detector.ed_calibration_constant      0.008259
-_diffrn_source.convergence_angle              0.000(5)
+_diffrn_source.convergence_angle              0.000
 _diffrn_source.ed_diffracting_area_selection  probe
 _refine_ls.sample_thickness                   0.014
 _refine_ls.sample_shape_expression            'F(\t) = 1 - ( 1 - \t^2^)^1/2^'
 
 ```
 
-### `_exptl_crystal.mosaicity` and `_exptl_crystal.mosaicity_method`
+### `_exptl_crystal.mosaicity` and `_exptl_crystal.mosaic_method`
 
 The mosaicity (in degrees) and method of determination may be supplied. If known, the average mosaic block size in ångström units may also be given using `_exptl_crystal.mosaic_block_size`.
 
@@ -125,7 +125,7 @@ The angle of convergence of the beam may be given in degrees. Typically found in
 
 ### `_diffrn_source.ed_diffracting_area_selection`
 
-A code specifying whether the diffraction region was selected by the size of the beam or whether selected-area electron diffraction technique used to illuminate the appropriate region of the sample.
+A code specifying whether the diffraction region was selected by the size of the beam or whether the selected-area electron diffraction technique was used to illuminate the appropriate region of the sample.
 
 ### `_refine_ls.sample_thickness` and `_refine_ls.sample_shape_expression`
 
@@ -169,7 +169,7 @@ loop_
    2  axis_beta     0.053      0.0
    2  axis_omega    0.101      0.0
    3  axis_u        1.00000    0.0
-   3  axis v       -0.43528    0.0
+   3  axis_v       -0.43528    0.0
    3  axis_w       -0.56478    0.0
    3  axis_alpha  -26.290      0.0
    3  axis_beta     0.053      0.0

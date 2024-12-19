@@ -227,7 +227,7 @@ save_diffrn_measurement.method_precession
 ;
     _name.category_id             diffrn_measurement
     _name.object_id               method_precession
-    _type.purpose                 Encode
+    _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -252,7 +252,7 @@ save_diffrn_measurement.rotation_mode
 ;
     _name.category_id             diffrn_measurement
     _name.object_id               rotation_mode
-    _type.purpose                 Encode
+    _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -286,7 +286,7 @@ save_diffrn_measurement.sample_tracking
 ;
     _name.category_id             diffrn_measurement
     _name.object_id               sample_tracking
-    _type.purpose                 Encode
+    _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -332,7 +332,7 @@ save_diffrn_radiation.illumination_mode
 ;
     _name.category_id             diffrn_radiation
     _name.object_id               illumination_mode
-    _type.purpose                 Encode
+    _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -663,7 +663,7 @@ save_refine.diffraction_theory
 ;
     _name.category_id             refine
     _name.object_id               diffraction_theory
-    _type.purpose                 Encode
+    _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
