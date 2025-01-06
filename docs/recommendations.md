@@ -37,7 +37,7 @@ The crystal colour is normally required by checkCIF, but can be difficult or imp
 
 ### `_diffrn_measurement.sample_tracking` and `_diffrn_measurement.sample_tracking_method`
 
-`_diffrn_measurement.sample_tracking` is a simple yes/no code to indicate if some tracking method was used to maximize the time that the sample is illuminated by the crystal, if the crystal drifts out of the beam during data collection. Details of the method can be given as free text in the `_diffrn_measurement.tracking_method` field. _A literature reference may also be supplied with the data item `_computing.sample_tracking`._
+`_diffrn_measurement.sample_tracking` is a simple yes/no code to indicate if some tracking method was used to maximize the time that the sample is illuminated by the crystal, if the crystal drifts out of the beam during data collection. Details of the method can be given as free text in the `_diffrn_measurement.sample_tracking_method` field. _A literature reference may also be supplied with the data item `_computing.sample_tracking`._
 
 ### `_diffrn_radiation.illumination_mode`
 
