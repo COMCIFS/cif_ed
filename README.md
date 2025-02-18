@@ -1,9 +1,10 @@
 # cif_ed
 
-Data names for describing electron diffraction. These are presented here as a CIF extension dictionary, but in practice many are equally applicable to X-ray or neutron studies, and so this draft, when approved by COMCIFS, might best be incorporated into the existing core CIF and possibly imgCIF dictionaries.
+Data names for describing electron diffraction. These are presented here as a CIF extension dictionary, although in practice many are equally applicable to X-ray or neutron studies. This draft, when approved by COMCIFS, will be incorporated periodically into the existing core CIF and possibly imgCIF dictionaries.
 
 This project is best seen as an opportunity to focus on the new items required in the context of electron crystallography, and to invite content review from the user community.
 
+The first set of data definitions incorporated into the core CIF dictionary are those in **release 1.0.0** of 18 February 2025. Any definitions in cif_ed.dic with latest revision later than that date should be considered work in progress, and should not be used in production software.
 
 
 This GitHub project contains:

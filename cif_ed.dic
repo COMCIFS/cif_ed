@@ -12,10 +12,10 @@ data_CIF_ED
 
     _dictionary.title            CIF_ED
     _dictionary.class            Instance
-    _dictionary.version          0.1.0-dev
+    _dictionary.version          1.0.0
     _dictionary.date             2025-02-18
     _dictionary.uri
-        https://raw.githubusercontent.com/COMCIFS/cif_ed/main/cif_ed.dic
+        https://raw.githubusercontent.com/COMCIFS/cif_ed/1.0.0/cif_ed.dic
     _dictionary.ddl_conformance  4.2.0
     _dictionary.namespace        CifCore
     _description.text
@@ -843,69 +843,17 @@ save_
 ;
        Initial draft of new or revised (from coreCIF) data definitions
        following nanED round robin project. (B. McMahon)
-
-       Updated definition of items in category REFINE_DIFF to modify
-       units for electron diffraction. (bm, after Lukas Palatinus)
-
-       New item _refine_ls.abs_structure_z-score introduced. (bm/Lukas)
-
-       New items _diffrn_radiation.illumination_mode,
-       _diffrn_measurement.tracking and *_method added; new examples for
-       _diffrn_source.size. (bm, after Marco Santucci)
-
-       Changed _type.source of _diffrn.precession_angle_su to 'Related'.
-
-       Removed inappropriate _enumeration.default from
-       _diffrn_measurement.method_precession, _diffrn_measurement.integration,
-       _diffrn_measurement.tracking, _diffrn_radiation.illumination_mode,
-       _refine.diffraction_theory
-
-       Changed name of Head category in line with evolving COMCIFS standards.
-
-       Updated the CIF_CORE dictionary import statement with the new Head
-       category name.
 ;
-         0.1.0-dev                2025-02-18
+         1.0.0                    2025-02-18
 ;
-       Changed the version number to 0.1.0-dev to indicate this is a
-       development version. Still under discussion as to whether this will
-       finish as a standalone dictionary, or simply provide a development
-       container for new items that will go into the core (and/or imgCIF).
+       Initial release version of this dictionary cif_ed.dic for electron
+       diffraction, developed by the NanED standards committee and with
+       input from the IUCr Commission on Electron Crystallography.
 
-       Changed _diffrn_measurement.tracking to
-       _diffrn_measurement.sample_tracking and
-       _diffrn_measurement.tracking_method to
-       _diffrn_measurement.sample_tracking_method. (bm, after Lukas Palatinus)
-
-       Added _computing.sample_tracking,
-       _diffrn_detector.ed_calibration_constant,
-       _diffrn_source.convergence_angle,
-       _diffrn_source.ed_probe_type. (bm, after Ashwin Suresh)
-
-       Added (based on the PDBx/mmCIF dictionary)
-       _exptl_crystal.mosaic_block_size, _exptl_crystal.mosaic_method,
-       _exptl_crystal.mosaicity and related *_su terms.
-
-       Added _refine_ls.sample_thickness and *_su,
-       _refine_ls.sample_shape_expression and _refine_ls.sample_shape_details.
-       (bm, after Ashwin and Lukas)
-
-       Added _diffrn_detector.distance_sample. (bm)
-
-       Renamed _diffrn.precession_angle to _diffrn.precession_semi_angle
-       (and corresponding *_su term).
-
-       Following community consultation (via Discord): renamed
-       _diffrn_source.ed_probe_type as
-       _diffrn_source.ed_diffracting_area_selection and updated
-       definition and enumeration list; added
-       _refine.diffraction_theory_details; renamed
-       _diffrn_measurement.integration as _diffrn_measurement.rotation_mode
-       and revised enumeration list.
-
-       Introduced _refine_diff.potential_max, *_min, *_RMS and associated
-       SU values (replacing updated REFINE_DIFF density terms) to reflect
-       correct practice in ED. (bm/Lukas)
-
-       Added DICTIONARY_AUTHOR loop.
+       This dictionary is not intended to be a standalone dictionary,
+       but rather a platform to allow focussed development of items
+       specific to electron diffraction, prior to incorporation in the
+       core CIF or other relevant COMCIFS-managed CIF dictionaries. Some
+       of the definitions in this dictionary may be copies of core
+       definitions with extended attributes.
 ;
