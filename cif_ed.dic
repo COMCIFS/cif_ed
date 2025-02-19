@@ -859,5 +859,8 @@ save_
 ;
          1.0.1-dev                2025-02-19
 ;
+       # Please update the date above and describe the change below until
+       # ready for the next release
+
        Initialised new development version.
 ;
