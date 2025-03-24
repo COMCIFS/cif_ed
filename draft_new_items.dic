@@ -9,7 +9,7 @@ data_DRAFT_NEW_ITEMS
     _dictionary.title            DRAFT_NEW_ITEMS
     _dictionary.class            Instance
     _dictionary.version          0.0.10
-    _dictionary.date             2025-02-18
+    _dictionary.date             2025-03-24
     _dictionary.uri
       https://raw.githubusercontent.com/COMCIFS/cif_ed/1.0.0/draft_new_items.dic
     _dictionary.ddl_conformance  4.2.0
