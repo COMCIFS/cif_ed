@@ -4,12 +4,12 @@ Data names for describing electron diffraction. These are presented here as a CI
 
 This project is best seen as an opportunity to focus on the new items required in the context of electron crystallography, and to invite content review from the user community.
 
-The first set of data definitions incorporated into the core CIF dictionary are those in **release 1.0.0** of 18 February 2025. Any definitions in cif_ed.dic with latest revision later than that date should be considered work in progress, and should not be used in production software.
+The first set of data definitions incorporated into the core CIF dictionary are those in **release 1.0.0** of 24 March 2025. Any definitions in cif_ed.dic with latest revision later than that date should be considered work in progress, and should not be used in production software.
 
 
 This GitHub project contains:
 
-* cif_ed.dic : a draft electron diffraction dictionary. This is currently set up as a new extension dictionary, but if in the end only few new data names are needed, it may be incorporated into the core dictionary.
+* cif_ed.dic : a draft electron diffraction dictionary. This was initially set up as a new extension dictionary, but because relatively few new data names are needed, many of which are of general relevance to diffraction experiments, its content has been incorporated into the core dictionary.
 * draft_new_items.dic: a file containing additional definitions that are more likely to be incorporated in the future in the imgCIF dictionary 
 * docs : a folder containing supporting documentation.
   * docs/ed.pdf : a PDF typeset representation of the draft dictionary to facilitate review by people unfamiliar with DDL formalism.

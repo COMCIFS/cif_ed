@@ -1,6 +1,6 @@
 # Recommendations for reporting structures determined by 3D electron diffraction
 
-### _Early draft for discussion_
+### _Draft suggesting recommendations that might be added to Notes for Authors_
 
 ## Description of the experiment and crystal
 
@@ -104,7 +104,6 @@ _exptl_crystal.mosaic_method          'From rocking curve, width 0.00070'
 
 (_b_)
 ```
-_diffrn_detector.ed_calibration_constant      0.008259
 _diffrn_source.convergence_angle              0.000
 _diffrn_source.ed_diffracting_area_selection  probe
 _refine_ls.sample_thickness                   0.014
@@ -115,10 +114,6 @@ _refine_ls.sample_shape_expression            'F(\t) = 1 - ( 1 - \t^2^)^1/2^'
 ### `_exptl_crystal.mosaicity` and `_exptl_crystal.mosaic_method`
 
 The mosaicity (in degrees) and method of determination may be supplied. If known, the average mosaic block size in ångström units may also be given using `_exptl_crystal.mosaic_block_size`.
-
-### `_diffrn_detector.ed_calibration_constant`
-
-The calibration factor for the electron diffraction camera constant.
 
 ### `_diffrn_source.convergence_angle`
 The angle of convergence of the beam may be given in degrees. Typically found in convergent-beam electron diffraction. Not necessary for parallel beams, though the given example describes a parallel beam with a quoted standard uncertainty.
