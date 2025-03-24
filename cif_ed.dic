@@ -12,8 +12,8 @@ data_CIF_ED
 
     _dictionary.title            CIF_ED
     _dictionary.class            Instance
-    _dictionary.version          1.0.1-dev
-    _dictionary.date             2025-02-19
+    _dictionary.version          1.0.0
+    _dictionary.date             2025-03-24
     _dictionary.uri
          https://raw.githubusercontent.com/COMCIFS/cif_ed/main/cif_ed.dic
     _dictionary.ddl_conformance  4.2.0
@@ -142,30 +142,6 @@ save_computing.sample_tracking
 
 save_
 
-save_diffrn_detector.distance_sample
-
-    _definition.id                '_diffrn_detector.distance_sample'
-    _definition.update            2024-07-26
-    _description.text
-;
-    Mean distance in millimetres from the diffracting sample
-    to the detector. Appropriate for instrument geometries where
-    the detector is fixed or maintained at a constant distance
-    from the diffraction target. More general geometries and
-    provision for adjusting the instrument geometries between or
-    during scans are handled by the imgCIF dictionary.
-;
-    _name.category_id             diffrn_detector
-    _name.object_id               distance_sample
-    _type.purpose                 Number
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0.0:
-    _units.code                   millimetres
-
-save_
-
 save_diffrn.precession_semi_angle
 
     _definition.id                '_diffrn.precession_semi_angle'
@@ -202,26 +178,6 @@ save_diffrn.precession_semi_angle_su
     _type.container               Single
     _type.contents                Real
     _units.code                   degrees
-
-save_
-
-save_diffrn_detector.ed_calibration_constant
-
-    _definition.id                '_diffrn_detector.ed_calibration_constant'
-    _definition.update            2024-07-15
-    _description.text
-;
-    The electron diffraction camera constant calibration factor.
-    Ref: Millette, J. (1987). The Microscope, 35, 107-117.
-;
-    _name.category_id             diffrn_detector
-    _name.object_id               ed_calibration_constant
-    _type.purpose                 Number
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0.0:
-    _units.code                   reciprocal_angstroms_per_pixel
 
 save_
 
@@ -844,7 +800,7 @@ save_
        Initial draft of new or revised (from coreCIF) data definitions
        following nanED round robin project. (B. McMahon)
 ;
-         1.0.0                    2025-02-18
+         1.0.0                    2025-03-24
 ;
        Initial release version of this dictionary cif_ed.dic for electron
        diffraction, developed by the NanED standards committee and with
@@ -856,11 +812,4 @@ save_
        core CIF or other relevant COMCIFS-managed CIF dictionaries. Some
        of the definitions in this dictionary may be copies of core
        definitions with extended attributes.
-;
-         1.0.1-dev                2025-02-19
-;
-       # Please update the date above and describe the change below until
-       # ready for the next release
-
-       Initialised new development version.
 ;

@@ -52,6 +52,61 @@ save_DRAFT_NEW_ITEMS_HEAD
 
 save_
 
+save_diffrn_detector.distance_sample
+
+    _definition.id                '_diffrn_detector.distance_sample'
+    _definition.update            2025-03-24
+    _description.text
+;
+    THIS DEFINITION WAS ORIGINALLY SUGGESTED FOR cif_ed.dic BUT TRANSFERRED
+    HERE AS A PLACEHOLDER FOLLOWING QUERY FROM JAMES HESTER FOR CLARIFICATION
+    (https://github.com/COMCIFS/cif_core/pull/514). CURRENTLY RETAINED AS A
+    REMINDER BUT A BETTER TREATMENT OF INSTRUMENT GEOMETRY MAY BE PREFERRED.
+    IN ED THIS MAY BE AN 'EFFECTIVE' DISTANCE CONTROLLED BY MICROSCOPE OPTICS.
+
+    Mean distance in millimetres from the diffracting sample
+    to the detector. Appropriate for instrument geometries where
+    the detector is fixed or maintained at a constant distance
+    from the diffraction target. More general geometries and
+    provision for adjusting the instrument geometries between or
+    during scans are handled by the imgCIF dictionary.
+;
+    _name.category_id             diffrn_detector
+    _name.object_id               distance_sample
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
+
+save_
+
+save_diffrn_detector.ed_calibration_constant
+
+    _definition.id                '_diffrn_detector.ed_calibration_constant'
+    _definition.update            2025-03-24
+    _description.text
+;
+    THIS DEFINITION WAS ORIGINALLY SUGGESTED FOR cif_ed.dic BUT TRANSFERRED
+    HERE AS A PLACEHOLDER ALONGSIDE _diffrn_detector.distance_sample UNTIL
+    A BETTER REFERENCE IS FOUND OR MORE SPECIFIC INFORMATION IS GIVEN ABOUT
+    HOW THE INSTRUMENT IS CALIBRATED AND WHAT ITS EFFECT IS.
+
+    The electron diffraction camera constant calibration factor.
+    Ref: Millette, J. (1987). The Microscope, 35, 107-117.
+;
+    _name.category_id             diffrn_detector
+    _name.object_id               ed_calibration_constant
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   reciprocal_angstroms_per_pixel
+
+save_
+
 save_diffrn_scan_frame.precession_angle
 
     _definition.id                '_diffrn_scan_frame.precession_angle'
@@ -134,7 +189,12 @@ save_
       _dictionary_audit.date
       _dictionary_audit.revision
 
-         0.0.10                   2025-02-18
+         0.0.10                   2025-03-24
 ;
        Initial draft dictionary.
+
+       Includes candidate items for cif_ed.dic that were thought better
+       handled in a cif_img.dic context or else elaborated with more
+       precise definitions and indications where relevant only to
+       electron diffraction.
 ;
