@@ -1,3 +1,5 @@
+[![CIF dictionary check](https://github.com/COMCIFS/cif_ed/actions/workflows/main.yml/badge.svg)](https://github.com/COMCIFS/cif_ed/actions)
+
 # cif_ed
 
 Data names for describing electron diffraction. These are presented here as a CIF extension dictionary, although in practice many are equally applicable to X-ray or neutron studies. This draft, when approved by COMCIFS, will be incorporated periodically into the existing core CIF and possibly imgCIF dictionaries.
