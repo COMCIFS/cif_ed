@@ -36,7 +36,6 @@ jobs:
         uses: COMCIFS/cif_syntax_check_action@master
         id: cif_syntax_check
 
-
   semantics:
     name: Semantics
     runs-on: ubuntu-latest
