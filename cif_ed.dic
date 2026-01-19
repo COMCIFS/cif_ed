@@ -13,7 +13,7 @@ data_CIF_ED
     _dictionary.title            CIF_ED
     _dictionary.class            Instance
     _dictionary.version          1.0.1-dev
-    _dictionary.date             2025-03-24
+    _dictionary.date             2026-01-19
     _dictionary.uri
          https://raw.githubusercontent.com/COMCIFS/cif_ed/main/cif_ed.dic
     _dictionary.ddl_conformance  4.2.0
@@ -813,7 +813,7 @@ save_
        of the definitions in this dictionary may be copies of core
        definitions with extended attributes.
 ;
-         1.0.1-dev                2025-03-24
+         1.0.1-dev                2026-01-19
 ;
        # Please update the date above and describe the change below until
        # ready for the next release
