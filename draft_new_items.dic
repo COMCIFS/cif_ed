@@ -46,8 +46,8 @@ save_DRAFT_NEW_ITEMS_HEAD
     _import.get
         [
          {'dupl':Ignore
-          'file':https://github.com/COMCIFS/imgCIF/blob/master/cif_img.dic
-          'mode':Full  'save':HEAD}
+          'file':cif_img.dic
+          'mode':Full  'save':CIF_IMG_HEAD}
         ]
 
 save_

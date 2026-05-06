@@ -69,6 +69,18 @@ jobs:
           repository: COMCIFS/cif_core
           path: cif-dictionaries/cif_core
 
+      - name: Check out the multiblock coreCIF dictionary
+        uses: actions/checkout@v6
+        with:
+          repository: COMCIFS/cif_multiblock
+          path: cif-dictionaries/cif_multiblock
+
+      - name: Check out the DDLm imgCIF dictionary
+        uses: actions/checkout@v6
+        with:
+            repository: COMCIFS/imgCIF
+            path: cif-dictionaries/imgCIF
+
       - name: Run dictionary validity checks
         uses: COMCIFS/dictionary_check_action@main
         id: ddlm_check
