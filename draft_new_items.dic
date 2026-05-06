@@ -8,10 +8,10 @@ data_DRAFT_NEW_ITEMS
 
     _dictionary.title            DRAFT_NEW_ITEMS
     _dictionary.class            Instance
-    _dictionary.version          0.0.10
-    _dictionary.date             2025-03-24
+    _dictionary.version          0.0.11-dev
+    _dictionary.date             2026-05-06
     _dictionary.uri
-      https://raw.githubusercontent.com/COMCIFS/cif_ed/1.0.0/draft_new_items.dic
+      https://raw.githubusercontent.com/COMCIFS/cif_ed/main/draft_new_items.dic
     _dictionary.ddl_conformance  4.2.0
     _dictionary.namespace        CifCore
     _description.text
@@ -197,4 +197,11 @@ save_
        handled in a cif_img.dic context or else elaborated with more
        precise definitions and indications where relevant only to
        electron diffraction.
+;
+         0.0.11-dev               2026-05-06
+;
+       # Please update the date above and describe the change below until
+       # ready for the next release
+
+       Initialised new development version.
 ;
