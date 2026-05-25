@@ -1,4 +1,5 @@
 #\#CIF_2.0
+# SPDX-License-Identifier: CC-BY-4.0
 ##############################################################################
 # Some possible additions to the initial cif_ed.dic for electron diffraction.#
 # These are tentative new items to extend cif_img.dic for raw data.          #
@@ -11,8 +12,9 @@ data_DRAFT_NEW_ITEMS
     _dictionary.version          0.0.10
     _dictionary.date             2025-03-24
     _dictionary.uri
-      https://raw.githubusercontent.com/COMCIFS/cif_ed/1.0.0/draft_new_items.dic
+      https://raw.githubusercontent.com/COMCIFS/cif_ed/main/draft_new_items.dic
     _dictionary.ddl_conformance  4.2.0
+    _dictionary.licensing_SPDX   CC-BY-4.0
     _dictionary.namespace        CifCore
     _description.text
 ;
